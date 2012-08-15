@@ -49,7 +49,7 @@ public class WritingSystemPanel extends javax.swing.JPanel {
         jumpToLabel = new javax.swing.JLabel();
         jumpToField = new javax.swing.JTextField();
         jumpToValueLabel = new javax.swing.JLabel();
-        jButton10 = new javax.swing.JButton();
+        autoFillButton = new javax.swing.JButton();
 
         writingSystemPane.addTab("Alphabet", alphabetPanel1);
         writingSystemPane.addTab("Abjad", abjadPanel1);
@@ -126,10 +126,10 @@ public class WritingSystemPanel extends javax.swing.JPanel {
 
         jumpToValueLabel.setText("41");
 
-        jButton10.setText("Auto Fill");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        autoFillButton.setText("Auto Fill");
+        autoFillButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                autoFillButtonActionPerformed(evt);
             }
         });
 
@@ -153,7 +153,7 @@ public class WritingSystemPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rightButton)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton10)
+                        .addComponent(autoFillButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -193,7 +193,7 @@ public class WritingSystemPanel extends javax.swing.JPanel {
                             .addComponent(setButton)
                             .addComponent(leftButton)
                             .addComponent(rightButton)
-                            .addComponent(jButton10))
+                            .addComponent(autoFillButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(downButton))
                     .addGroup(layout.createSequentialGroup()
@@ -229,28 +229,48 @@ public class WritingSystemPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_rightButtonActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void autoFillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autoFillButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_autoFillButtonActionPerformed
 
     private void downButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_downButtonActionPerformed
 
     private void backPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageButtonActionPerformed
-        // TODO add your handling code here:
+        daChar -= 256;
+        if (daChar > 65535){
+            daChar -= 65535;
+        }
+        previewLabel.setText("XX"+daChar+"XX");
+        jumpToValueLabel.setText(Integer.toHexString((int)daChar));
     }//GEN-LAST:event_backPageButtonActionPerformed
 
     private void backCharButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backCharButtonActionPerformed
-        // TODO add your handling code here:
+        daChar -= 256;
+        if(daChar < 0){
+            daChar += 65535;
+        }
+        previewLabel.setText("XX"+daChar+"XX");
+        jumpToValueLabel.setText(Integer.toHexString((int)daChar));
     }//GEN-LAST:event_backCharButtonActionPerformed
 
     private void forwardCharButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forwardCharButtonActionPerformed
-        // TODO add your handling code here:
+        daChar += 1;
+        if (daChar > 65535){
+            daChar = 0;
+        }
+        previewLabel.setText("XX"+daChar+"XX");
+        jumpToValueLabel.setText(Integer.toHexString((int)daChar));
     }//GEN-LAST:event_forwardCharButtonActionPerformed
 
     private void forwardPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forwardPageButtonActionPerformed
-        // TODO add your handling code here:
+        daChar += 256;
+        if (daChar > 65535){
+            daChar -= 65535;
+        }
+        previewLabel.setText("XX"+daChar+"XX");
+        jumpToValueLabel.setText(Integer.toHexString((int)daChar));
     }//GEN-LAST:event_forwardPageButtonActionPerformed
 
 
@@ -258,12 +278,12 @@ public class WritingSystemPanel extends javax.swing.JPanel {
     private lcs.ui.panels.AbjadPanel abjadPanel1;
     private lcs.ui.panels.AbugidaPanel abugidaPanel1;
     private lcs.ui.panels.AlphabetPanel alphabetPanel1;
+    private javax.swing.JButton autoFillButton;
     private javax.swing.JButton backCharButton;
     private javax.swing.JButton backPageButton;
     private javax.swing.JButton downButton;
     private javax.swing.JButton forwardCharButton;
     private javax.swing.JButton forwardPageButton;
-    private javax.swing.JButton jButton10;
     private javax.swing.JTextField jumpToField;
     private javax.swing.JLabel jumpToLabel;
     private javax.swing.JLabel jumpToValueLabel;
@@ -275,5 +295,5 @@ public class WritingSystemPanel extends javax.swing.JPanel {
     private javax.swing.JButton upButton;
     private javax.swing.JTabbedPane writingSystemPane;
     // End of variables declaration//GEN-END:variables
-
+    private char daChar ='\u0041';
 }

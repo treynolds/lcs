@@ -31,45 +31,45 @@ public class SoundsPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jSpinner2 = new javax.swing.JSpinner();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        consonantsScroller = new javax.swing.JScrollPane();
+        consonantsTable = new javax.swing.JTable();
+        vowelsScroller = new javax.swing.JScrollPane();
+        vowelsTable = new javax.swing.JTable();
+        consonantsLabel = new javax.swing.JLabel();
+        vowelsLabel = new javax.swing.JLabel();
+        consonantsSpinner = new javax.swing.JSpinner();
+        vowelsSpinner = new javax.swing.JSpinner();
+        consonantNumLabel = new javax.swing.JLabel();
+        vowelsNumLabel = new javax.swing.JLabel();
+        updateVowelsButton = new javax.swing.JButton();
+        updateConsonantsButton = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        consonantsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"b", null},
-                {"c", null},
-                {"d", null},
-                {"f", null},
-                {"g", null},
-                {"h", null},
-                {"j", null},
-                {"k", null},
-                {"l", null},
-                {"m", null},
-                {"n", null},
-                {"p", null},
-                {"q", null},
-                {"r", null},
-                {"s", null},
-                {"t", null},
-                {"v", null},
-                {"w", null},
-                {"x", null},
-                {"y", null},
-                {"z", null}
+                {"u0062", "b	"},
+                {"u0063", "c	"},
+                {"u0064", "d"},
+                {"u0066", "f"},
+                {"u0067", "g"},
+                {"u0068", "h"},
+                {"u006a", "j"},
+                {"u006b", "k"},
+                {"u006c", "l"},
+                {"u006d", "m"},
+                {"u006e", "n"},
+                {"u0070", "p"},
+                {"u0071", "q"},
+                {"u0072", "r"},
+                {"u0073", "s"},
+                {"u0074", "t"},
+                {"u0076", "v"},
+                {"u0077", "w"},
+                {"u0078", "x"},
+                {"u0079", "y"},
+                {"u007a", "z"}
             },
             new String [] {
-                "Code Point", "IPA"
+                "Code Point", "Display"
             }
         ) {
             Class[] types = new Class [] {
@@ -80,18 +80,18 @@ public class SoundsPanel extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        consonantsScroller.setViewportView(consonantsTable);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        vowelsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"a", null},
-                {"e", null},
-                {"i", null},
-                {"o", null},
-                {"u", null}
+                {"u0061", "a"},
+                {"u0065", "e"},
+                {"u0069", "i"},
+                {"u006f", "o"},
+                {"u0075", "u"}
             },
             new String [] {
-                "Code Point", "IPA"
+                "Code Point", "Display"
             }
         ) {
             Class[] types = new Class [] {
@@ -102,23 +102,23 @@ public class SoundsPanel extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        vowelsScroller.setViewportView(vowelsTable);
 
-        jLabel1.setText("Consonants");
+        consonantsLabel.setText("Consonants");
 
-        jLabel2.setText("Vowels");
+        vowelsLabel.setText("Vowels");
 
-        jSpinner1.setValue(21);
+        consonantsSpinner.setValue(21);
 
-        jSpinner2.setValue(5);
+        vowelsSpinner.setValue(5);
 
-        jLabel3.setText("Number");
+        consonantNumLabel.setText("Number");
 
-        jLabel4.setText("Number");
+        vowelsNumLabel.setText("Number");
 
-        jButton1.setText("Update");
+        updateVowelsButton.setText("Update");
 
-        jButton2.setText("Update");
+        updateConsonantsButton.setText("Update");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -130,26 +130,26 @@ public class SoundsPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(consonantsLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
-                                .addComponent(jLabel3)
+                                .addComponent(consonantNumLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))
+                                .addComponent(consonantsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(consonantsScroller, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(updateConsonantsButton)
                         .addGap(255, 255, 255)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addComponent(updateVowelsButton)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(vowelsScroller, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel2)
+                            .addComponent(vowelsLabel)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4)
+                            .addComponent(vowelsNumLabel)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(vowelsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -157,38 +157,38 @@ public class SoundsPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3))
+                    .addComponent(vowelsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(consonantsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vowelsLabel)
+                    .addComponent(consonantsLabel)
+                    .addComponent(vowelsNumLabel)
+                    .addComponent(consonantNumLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, 0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(vowelsScroller, 0, 0, Short.MAX_VALUE)
+                    .addComponent(consonantsScroller, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(updateConsonantsButton)
+                    .addComponent(updateVowelsButton))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JLabel consonantNumLabel;
+    private javax.swing.JLabel consonantsLabel;
+    private javax.swing.JScrollPane consonantsScroller;
+    private javax.swing.JSpinner consonantsSpinner;
+    private javax.swing.JTable consonantsTable;
+    private javax.swing.JButton updateConsonantsButton;
+    private javax.swing.JButton updateVowelsButton;
+    private javax.swing.JLabel vowelsLabel;
+    private javax.swing.JLabel vowelsNumLabel;
+    private javax.swing.JScrollPane vowelsScroller;
+    private javax.swing.JSpinner vowelsSpinner;
+    private javax.swing.JTable vowelsTable;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -22,31 +22,31 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="consonantsLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="169" max="32767" attributes="0"/>
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <Component id="consonantNumLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jSpinner1" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="consonantsSpinner" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane1" alignment="1" pref="310" max="32767" attributes="0"/>
+                          <Component id="consonantsScroller" alignment="1" pref="310" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="updateConsonantsButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="255" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="updateVowelsButton" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jScrollPane2" alignment="1" min="-2" pref="301" max="-2" attributes="0"/>
+                      <Component id="vowelsScroller" alignment="1" min="-2" pref="301" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="1">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="vowelsLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <Component id="vowelsNumLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jSpinner2" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="vowelsSpinner" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -59,22 +59,22 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jSpinner2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="vowelsSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="consonantsSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="vowelsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="consonantsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="vowelsNumLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="consonantNumLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane2" min="0" pref="0" max="32767" attributes="1"/>
-                  <Component id="jScrollPane1" min="-2" pref="368" max="-2" attributes="1"/>
+                  <Component id="vowelsScroller" min="0" pref="0" max="32767" attributes="1"/>
+                  <Component id="consonantsScroller" min="-2" pref="368" max="-2" attributes="1"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="updateConsonantsButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="updateVowelsButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="71" max="32767" attributes="0"/>
           </Group>
@@ -82,17 +82,40 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JScrollPane" name="consonantsScroller">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable1">
+        <Component class="javax.swing.JTable" name="consonantsTable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="2" rowCount="21">
                 <Column editable="true" title="Code Point" type="java.lang.String">
-                  <Data value="b"/>
-                  <Data value="c"/>
+                  <Data value="u0062"/>
+                  <Data value="u0063"/>
+                  <Data value="u0064"/>
+                  <Data value="u0066"/>
+                  <Data value="u0067"/>
+                  <Data value="u0068"/>
+                  <Data value="u006a"/>
+                  <Data value="u006b"/>
+                  <Data value="u006c"/>
+                  <Data value="u006d"/>
+                  <Data value="u006e"/>
+                  <Data value="u0070"/>
+                  <Data value="u0071"/>
+                  <Data value="u0072"/>
+                  <Data value="u0073"/>
+                  <Data value="u0074"/>
+                  <Data value="u0076"/>
+                  <Data value="u0077"/>
+                  <Data value="u0078"/>
+                  <Data value="u0079"/>
+                  <Data value="u007a"/>
+                </Column>
+                <Column editable="true" title="Display" type="java.lang.String">
+                  <Data value="b&#x9;"/>
+                  <Data value="c&#x9;"/>
                   <Data value="d"/>
                   <Data value="f"/>
                   <Data value="g"/>
@@ -113,7 +136,6 @@
                   <Data value="y"/>
                   <Data value="z"/>
                 </Column>
-                <Column editable="true" title="IPA" type="java.lang.String"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -137,22 +159,28 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+    <Container class="javax.swing.JScrollPane" name="vowelsScroller">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable2">
+        <Component class="javax.swing.JTable" name="vowelsTable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="2" rowCount="5">
                 <Column editable="true" title="Code Point" type="java.lang.String">
+                  <Data value="u0061"/>
+                  <Data value="u0065"/>
+                  <Data value="u0069"/>
+                  <Data value="u006f"/>
+                  <Data value="u0075"/>
+                </Column>
+                <Column editable="true" title="Display" type="java.lang.String">
                   <Data value="a"/>
                   <Data value="e"/>
                   <Data value="i"/>
                   <Data value="o"/>
                   <Data value="u"/>
                 </Column>
-                <Column editable="true" title="IPA" type="java.lang.String"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -176,46 +204,46 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="consonantsLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Consonants"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="vowelsLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Vowels"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JSpinner" name="jSpinner1">
+    <Component class="javax.swing.JSpinner" name="consonantsSpinner">
       <Properties>
         <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="21" type="code"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JSpinner" name="jSpinner2">
+    <Component class="javax.swing.JSpinner" name="vowelsSpinner">
       <Properties>
         <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="5" type="code"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="consonantNumLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Number"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="vowelsNumLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Number"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="updateVowelsButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Update"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="updateConsonantsButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Update"/>
       </Properties>

@@ -247,7 +247,7 @@ public class WritingSystemPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backPageButtonActionPerformed
 
     private void backCharButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backCharButtonActionPerformed
-        daChar -= 256;
+        daChar -= 1;
         if(daChar < 0){
             daChar += 65535;
         }

@@ -39,5 +39,9 @@ public class lcsSyllableStructure {
         return structure.substring(s,e);
     }
 
-    private String structure;
+    public String toString(){
+        return structure;
+    }
+
+    private String structure = "CV";
 }

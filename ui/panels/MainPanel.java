@@ -11,6 +11,8 @@
 
 package lcs.ui.panels;
 
+import lcs.ui.table.*;
+
 /**
  *
  * @author Timothy
@@ -31,15 +33,18 @@ public class MainPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lcsMain1 = new lcs.lcsMain();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        mainTable = new javax.swing.JTable();
         mainSaveButton = new javax.swing.JButton();
         loadDefinitionsButton = new javax.swing.JButton();
         generateWordsButton = new javax.swing.JButton();
+        quitButton = new javax.swing.JButton();
 
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        mainTable.setAutoCreateRowSorter(true);
+        mainTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -84,7 +89,13 @@ public class MainPanel extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        mainTable.setRowHeight(30);
+        jScrollPane1.setViewportView(mainTable);
+        mainTable.getColumnModel().getColumn(0).setCellRenderer(new lcsCellRenderer());
+        mainTable.getColumnModel().getColumn(1).setCellRenderer(new lcsCellRenderer());
+        mainTable.getColumnModel().getColumn(2).setCellRenderer(new lcsCellRenderer());
+        mainTable.getColumnModel().getColumn(3).setCellRenderer(new lcsCellRenderer());
+        mainTable.getColumnModel().getColumn(4).setCellRenderer(new lcsCellRenderer());
 
         mainSaveButton.setText("Save");
         mainSaveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -107,6 +118,13 @@ public class MainPanel extends javax.swing.JPanel {
             }
         });
 
+        quitButton.setText("Quit");
+        quitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,7 +138,9 @@ public class MainPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(loadDefinitionsButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(generateWordsButton)))
+                        .addComponent(generateWordsButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 313, Short.MAX_VALUE)
+                        .addComponent(quitButton)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -132,7 +152,8 @@ public class MainPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mainSaveButton)
                     .addComponent(loadDefinitionsButton)
-                    .addComponent(generateWordsButton))
+                    .addComponent(generateWordsButton)
+                    .addComponent(quitButton))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -142,20 +163,33 @@ public class MainPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_mainSaveButtonActionPerformed
 
     private void loadDefinitionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadDefinitionsButtonActionPerformed
-        // TODO add your handling code here:
+        lcsMain1.loadDictionary();
     }//GEN-LAST:event_loadDefinitionsButtonActionPerformed
 
     private void generateWordsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateWordsButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_generateWordsButtonActionPerformed
 
+    private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_quitButtonActionPerformed
+
+    public javax.swing.JTable getMainTable(){
+        return mainTable;
+    }
+
+    public void setMain(lcs.lcsMain lcsm){
+        lcsMain1 = lcsm;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton generateWordsButton;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private lcs.lcsMain lcsMain1;
     private javax.swing.JButton loadDefinitionsButton;
     private javax.swing.JButton mainSaveButton;
+    private javax.swing.JTable mainTable;
+    private javax.swing.JButton quitButton;
     // End of variables declaration//GEN-END:variables
 
 }

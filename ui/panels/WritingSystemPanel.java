@@ -56,6 +56,8 @@ public class WritingSystemPanel extends javax.swing.JPanel {
         writingSystemPane.addTab("Abugida", abugidaPanel1);
         writingSystemPane.addTab("Syllabary", syllabaryPanel1);
 
+        writingSystemPane.setSelectedComponent(alphabetPanel1);
+
         upButton.setText("^");
         upButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

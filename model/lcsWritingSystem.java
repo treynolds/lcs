@@ -16,6 +16,19 @@ public class lcsWritingSystem {
         glyphUseMap=new HashMap();
         letterMap=new HashMap();
         info=new HashMap();
+        glyphUseMap.put("Glyph_1", "Lower");
+        info.put("System", "Alphabet");
+        info.put("GlyphsPerLetter", "1");
+        info.put("CapRule", "None");
+        info.put("Font", "Code2000");
+        info.put("FontType", "Custom");
+        info.put("NumbverOfLetters", "26");
+        String[] letters = {"a","b","c","d","e","f","g","h","i","j",
+                            "k","l","m","n","o","p","q","r","s","t",
+                            "u","v","w","x","y","z"};
+        for (int a = 0; a < letters.length; a++){
+            letterMap.put(letters[a], letters[a]);
+        }
     }
 
     public HashMap getGlyphUseMap(){

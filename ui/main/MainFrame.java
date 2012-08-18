@@ -38,13 +38,13 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        mainContainerPanel = new javax.swing.JPanel();
+        mainTabbedPane = new javax.swing.JTabbedPane();
         mainPanel1 = new lcs.ui.panels.MainPanel();
         rulesPanel2 = new lcs.ui.panels.RulesPanel();
         soundsPanel1 = new lcs.ui.panels.SoundsPanel();
         writingSystemPanel1 = new lcs.ui.panels.WritingSystemPanel();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        mainMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         newMenuItem = new javax.swing.JMenuItem();
         openMenuItem = new javax.swing.JMenuItem();
@@ -73,24 +73,24 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Language Constructions Set");
 
-        jTabbedPane1.addTab("Main", mainPanel1);
-        jTabbedPane1.addTab("Rules", rulesPanel2);
-        jTabbedPane1.addTab("Sounds", soundsPanel1);
-        jTabbedPane1.addTab("Writing System", writingSystemPanel1);
+        mainTabbedPane.addTab("Main", mainPanel1);
+        mainTabbedPane.addTab("Rules", rulesPanel2);
+        mainTabbedPane.addTab("Sounds", soundsPanel1);
+        mainTabbedPane.addTab("Writing System", writingSystemPanel1);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout mainContainerPanelLayout = new javax.swing.GroupLayout(mainContainerPanel);
+        mainContainerPanel.setLayout(mainContainerPanelLayout);
+        mainContainerPanelLayout.setHorizontalGroup(
+            mainContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainContainerPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+        mainContainerPanelLayout.setVerticalGroup(
+            mainContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainContainerPanelLayout.createSequentialGroup()
+                .addComponent(mainTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -167,7 +167,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         fileMenu.add(quitMenuItem);
 
-        jMenuBar1.add(fileMenu);
+        mainMenuBar.add(fileMenu);
 
         editMenu.setText("Edit");
 
@@ -229,7 +229,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         editMenu.add(replaceMenuItem);
 
-        jMenuBar1.add(editMenu);
+        mainMenuBar.add(editMenu);
 
         helpMenu.setText("Help");
 
@@ -249,19 +249,19 @@ public class MainFrame extends javax.swing.JFrame {
         });
         helpMenu.add(aboutMenuItem);
 
-        jMenuBar1.add(helpMenu);
+        mainMenuBar.add(helpMenu);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(mainMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(mainContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainContainerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -340,12 +340,17 @@ public class MainFrame extends javax.swing.JFrame {
         ad.setVisible(true);
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
+    public lcs.ui.panels.MainPanel getMainPanel(){
+        return mainPanel1;
+    }
+
     /**
     * @param args the command line arguments
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                System.out.println("In MF main");
                 new MainFrame().setVisible(true);
             }
         });
@@ -362,11 +367,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem findMenuItem;
     private javax.swing.JMenuItem helpContentsMenuItem;
     private javax.swing.JMenu helpMenu;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JMenuItem loadMenuItem;
+    private javax.swing.JPanel mainContainerPanel;
+    private javax.swing.JMenuBar mainMenuBar;
     private lcs.ui.panels.MainPanel mainPanel1;
+    private javax.swing.JTabbedPane mainTabbedPane;
     private javax.swing.JMenuItem newMenuItem;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;

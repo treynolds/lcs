@@ -1,4 +1,4 @@
-package rw;
+package lcs.ui.table;
 
 /*
  * To change this template, choose Tools | Templates

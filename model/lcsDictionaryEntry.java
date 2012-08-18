@@ -94,8 +94,8 @@ public class lcsDictionaryEntry {
         }
     }
 
-    public String generateMeaning(lcsSyllableStructure syllable, Vector vowels,
-            Vector consonants, String pos, HashMap rules, String original, int maxSylls){
+    public String generateMeaning(lcsSyllableStructure syllable, ArrayList vowels,
+            ArrayList consonants, String pos, HashMap rules, String original, int maxSylls){        
         String word="";
         syllableBreaks.clear();
         Vector rule = (Vector)rules.get(pos);
@@ -105,11 +105,11 @@ public class lcsDictionaryEntry {
             for(int a = 0; a < syllable.length(); a++){
                 if(syllable.charAt(a) == 'C'){
                     int b=(int)(Math.random()*consonants.size());
-                    word += consonants.elementAt(b);
+                    word += consonants.get(b);
                 }
                 if(syllable.charAt(a) == 'V'){
                     int b=(int)(Math.random()*vowels.size());
-                    word += vowels.elementAt(b);
+                    word += vowels.get(b);
                 }
                 if(syllable.charAt(a) == '['){
                     if(syllable.indexOf(']',a) >= 0){
@@ -228,5 +228,5 @@ public class lcsDictionaryEntry {
     private String pos;
     private String root;
     private int syllableCount;
-    private Vector syllableBreaks;
+    private Vector syllableBreaks = new Vector();
 }

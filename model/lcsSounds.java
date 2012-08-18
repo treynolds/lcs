@@ -14,9 +14,17 @@ import java.util.*;
 public class lcsSounds {
 
     public lcsSounds(){
-        vowels.addAll(Arrays.asList(new char[]{'a','e','i','o','u'}));
-        consonants.addAll(Arrays.asList(new char[] {'b','c','d','f','g','h','j','k','l','m','n','p'
-                ,'q','r','s','t','v','w','x','y','z'}));
+        //vowels.addAll(Arrays.asList(new char[]{'a','e','i','o','u'}));
+        //consonants.addAll(Arrays.asList(new char[] {'b','c','d','f','g','h','j','k','l','m','n','p'
+        //        ,'q','r','s','t','v','w','x','y','z'}));
+        String vwls ="aeiou";
+        String cons = "bcdfghjklmnpqrstvwxyz";
+        for(int a=0;a<vwls.length();a++){
+            vowels.add(vwls.charAt(a));
+        }
+        for(int a=0;a<cons.length();a++){
+            consonants.add(cons.charAt(a));
+        }
     }
 
     public void setVowels(char[] v){
@@ -38,6 +46,6 @@ public class lcsSounds {
     }
 
 
-    private ArrayList vowels;
-    private ArrayList consonants;
+    private ArrayList vowels = new ArrayList();
+    private ArrayList consonants = new ArrayList();
 }

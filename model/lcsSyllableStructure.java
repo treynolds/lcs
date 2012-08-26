@@ -7,9 +7,17 @@ package lcs.model;
 
 /**
  *
- * @author Timothy
+ * @author Ted
  */
 public class lcsSyllableStructure {
+    
+    public lcsSyllableStructure(){
+        structure = "CV";
+    }
+
+    public lcsSyllableStructure(String s){
+        structure = s;
+    }
     
     public char charAt(int a){
         return structure.charAt(a);
@@ -43,5 +51,5 @@ public class lcsSyllableStructure {
         return structure;
     }
 
-    private String structure = "CV";
+    private String structure;
 }

@@ -31,6 +31,7 @@ public class SoundsPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lcsMain1 = new lcs.lcsMain();
         consonantsScroller = new javax.swing.JScrollPane();
         consonantsTable = new javax.swing.JTable();
         vowelsScroller = new javax.swing.JScrollPane();
@@ -174,7 +175,9 @@ public class SoundsPanel extends javax.swing.JPanel {
                 .addContainerGap(71, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+        public void setMain(lcs.lcsMain lcsm){
+        lcsMain1 = lcsm;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel consonantNumLabel;
@@ -182,6 +185,7 @@ public class SoundsPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane consonantsScroller;
     private javax.swing.JSpinner consonantsSpinner;
     private javax.swing.JTable consonantsTable;
+    private lcs.lcsMain lcsMain1;
     private javax.swing.JButton updateConsonantsButton;
     private javax.swing.JButton updateVowelsButton;
     private javax.swing.JLabel vowelsLabel;

@@ -40,10 +40,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         mainContainerPanel = new javax.swing.JPanel();
         mainTabbedPane = new javax.swing.JTabbedPane();
-        mainPanel1 = new lcs.ui.panels.MainPanel();
-        rulesPanel2 = new lcs.ui.panels.RulesPanel();
-        soundsPanel1 = new lcs.ui.panels.SoundsPanel();
-        writingSystemPanel1 = new lcs.ui.panels.WritingSystemPanel();
+        mainPanel = new lcs.ui.panels.MainPanel();
+        rulesPanel = new lcs.ui.panels.RulesPanel();
+        soundsPanel = new lcs.ui.panels.SoundsPanel();
+        writingSystemPanel = new lcs.ui.panels.WritingSystemPanel();
         mainMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         newMenuItem = new javax.swing.JMenuItem();
@@ -73,10 +73,10 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Language Constructions Set");
 
-        mainTabbedPane.addTab("Main", mainPanel1);
-        mainTabbedPane.addTab("Rules", rulesPanel2);
-        mainTabbedPane.addTab("Sounds", soundsPanel1);
-        mainTabbedPane.addTab("Writing System", writingSystemPanel1);
+        mainTabbedPane.addTab("Main", mainPanel);
+        mainTabbedPane.addTab("Rules", rulesPanel);
+        mainTabbedPane.addTab("Sounds", soundsPanel);
+        mainTabbedPane.addTab("Writing System", writingSystemPanel);
 
         javax.swing.GroupLayout mainContainerPanelLayout = new javax.swing.GroupLayout(mainContainerPanel);
         mainContainerPanel.setLayout(mainContainerPanelLayout);
@@ -341,7 +341,19 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     public lcs.ui.panels.MainPanel getMainPanel(){
-        return mainPanel1;
+        return mainPanel;
+    }
+
+    public lcs.ui.panels.RulesPanel getRulesPanel(){
+        return rulesPanel;
+    }
+
+    public lcs.ui.panels.SoundsPanel getSoundsPanel(){
+        return soundsPanel;
+    }
+
+    public lcs.ui.panels.WritingSystemPanel getWritingSystemPanel(){
+        return writingSystemPanel;
     }
 
     /**
@@ -370,7 +382,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem loadMenuItem;
     private javax.swing.JPanel mainContainerPanel;
     private javax.swing.JMenuBar mainMenuBar;
-    private lcs.ui.panels.MainPanel mainPanel1;
+    private lcs.ui.panels.MainPanel mainPanel;
     private javax.swing.JTabbedPane mainTabbedPane;
     private javax.swing.JMenuItem newMenuItem;
     private javax.swing.JMenuItem openMenuItem;
@@ -379,15 +391,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem quitMenuItem;
     private javax.swing.JMenuItem redoMenuItem;
     private javax.swing.JMenuItem replaceMenuItem;
-    private lcs.ui.panels.RulesPanel rulesPanel2;
+    private lcs.ui.panels.RulesPanel rulesPanel;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveDefsAsMenuItem;
     private javax.swing.JMenuItem saveDefsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
-    private lcs.ui.panels.SoundsPanel soundsPanel1;
+    private lcs.ui.panels.SoundsPanel soundsPanel;
     private javax.swing.JMenuItem undoMenuItem;
     private javax.swing.JPopupMenu.Separator urCcpSeparator;
-    private lcs.ui.panels.WritingSystemPanel writingSystemPanel1;
+    private lcs.ui.panels.WritingSystemPanel writingSystemPanel;
     // End of variables declaration//GEN-END:variables
 
 }

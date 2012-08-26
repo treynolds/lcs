@@ -34,6 +34,7 @@ public class lcsMain {
     }
 
     public void setSyllable(lcsSyllableStructure syllable){
+        System.out.println(syllable);
         this.syllable = syllable;
     }
 
@@ -80,8 +81,9 @@ public class lcsMain {
             wordCount = 0;            
             try{
                 BufferedReader in = new BufferedReader(new FileReader(definitions));
-                String defLine = "";
-                do {
+                String defLine = " ";
+                while(!defLine.equals("")){
+                    System.out.println(">"+defLine+"<");
                     String splitter = ",";
                     defLine = in.readLine();
                     defLine = defLine.replace("\"","");
@@ -89,7 +91,7 @@ public class lcsMain {
                     String[] stff = defLine.split(splitter);
                     stuff[0] = strip(stff[0]).trim();
                     stuff[1] = strip(stff[1]).trim();
-                    System.out.println(stuff[1]);
+                    //System.out.println(stuff[1]);
                     if(stff.length<3){
                         stuff[2]=" ";
                         stuff[3]="0";
@@ -110,11 +112,12 @@ public class lcsMain {
                                     rde.getDefinition(),maximumSyllables));
                         }while(words.contains(rde.getMeaning()));
                     }
-                    System.out.println(rde.getDefinition()+":"+rde.getMeaning());
+                    //System.out.println(rde.getDefinition()+":"+rde.getMeaning());
                     dictionary.addEntry(rde);
                     words.addElement(rde.getMeaning());
                     wordCount++;
-                }while(!defLine.equals(""));
+                    //updateTable();
+                }//while(!defLine.equals("***"));
                 in.close();
             }
             catch (IOException ex){
@@ -122,7 +125,8 @@ public class lcsMain {
                 ex.printStackTrace();
             }
             catch(NullPointerException ex){
-                
+                System.out.println(ex.getMessage());
+                ex.printStackTrace();
             }
             updateTable();
         }
@@ -276,6 +280,10 @@ public class lcsMain {
             stripped = stripped.substring(0, stripped.length()-1);
         }
         return stripped;
+    }
+
+    public void setMaximumSyllables(int max){
+        maximumSyllables = max;
     }
 
     private lcsDictionary dictionary;

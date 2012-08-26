@@ -234,7 +234,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>
-            <Component class="lcs.ui.panels.MainPanel" name="mainPanel1">
+            <Component class="lcs.ui.panels.MainPanel" name="mainPanel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Main">
@@ -243,7 +243,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="lcs.ui.panels.RulesPanel" name="rulesPanel2">
+            <Component class="lcs.ui.panels.RulesPanel" name="rulesPanel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Rules">
@@ -252,7 +252,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="lcs.ui.panels.SoundsPanel" name="soundsPanel1">
+            <Component class="lcs.ui.panels.SoundsPanel" name="soundsPanel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Sounds">
@@ -261,7 +261,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="lcs.ui.panels.WritingSystemPanel" name="writingSystemPanel1">
+            <Component class="lcs.ui.panels.WritingSystemPanel" name="writingSystemPanel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Writing System">

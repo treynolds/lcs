@@ -31,6 +31,7 @@ public class WritingSystemPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lcsMain1 = new lcs.lcsMain();
         writingSystemPane = new javax.swing.JTabbedPane();
         alphabetPanel1 = new lcs.ui.panels.AlphabetPanel();
         abjadPanel1 = new lcs.ui.panels.AbjadPanel();
@@ -186,7 +187,7 @@ public class WritingSystemPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(writingSystemPane, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(upButton)
@@ -200,7 +201,7 @@ public class WritingSystemPanel extends javax.swing.JPanel {
                         .addComponent(downButton))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(previewLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(backCharButton)
                             .addComponent(forwardCharButton)
@@ -275,6 +276,9 @@ public class WritingSystemPanel extends javax.swing.JPanel {
         jumpToValueLabel.setText(Integer.toHexString((int)daChar));
     }//GEN-LAST:event_forwardPageButtonActionPerformed
 
+    public void setMain(lcs.lcsMain lcsm){
+        lcsMain1 = lcsm;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private lcs.ui.panels.AbjadPanel abjadPanel1;
@@ -289,6 +293,7 @@ public class WritingSystemPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jumpToField;
     private javax.swing.JLabel jumpToLabel;
     private javax.swing.JLabel jumpToValueLabel;
+    private lcs.lcsMain lcsMain1;
     private javax.swing.JButton leftButton;
     private javax.swing.JLabel previewLabel;
     private javax.swing.JButton rightButton;

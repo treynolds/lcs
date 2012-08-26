@@ -16,7 +16,7 @@ public class lcsPosRules extends HashMap {
         Vector rule = new Vector();
         rule.add(new Boolean(true));
         rule.add("");
-        rule.add(0);
+        rule.add(-1);
         rule.add(new Boolean(false));
         rule.add(new Boolean(true));
         put("Adjective", rule);

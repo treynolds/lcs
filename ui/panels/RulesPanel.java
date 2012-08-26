@@ -31,8 +31,9 @@ public class RulesPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lcsMain1 = new lcs.lcsMain();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        posRulesTable = new javax.swing.JTable();
         syllablePatternLabel = new javax.swing.JLabel();
         partOfSpeechLabel = new javax.swing.JLabel();
         syllablePatternField = new javax.swing.JTextField();
@@ -48,7 +49,7 @@ public class RulesPanel extends javax.swing.JPanel {
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        posRulesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Adjective", null, null, new Integer(-1), null, null},
                 {"Adverb", null, null, new Integer(-1), null, null},
@@ -71,16 +72,27 @@ public class RulesPanel extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getColumn(0).setResizable(false);
+        jScrollPane1.setViewportView(posRulesTable);
+        posRulesTable.getColumnModel().getColumn(0).setResizable(false);
 
         syllablePatternLabel.setText("Syllable Pattern");
 
         partOfSpeechLabel.setText("Part of Speech Rules");
 
+        syllablePatternField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                syllablePatternFieldActionPerformed(evt);
+            }
+        });
+
         maxSyllablesLabel.setText("Maximum # Syllables");
 
         maxSyllablesSpinner.setModel(new javax.swing.SpinnerNumberModel(3, 2, 5, 1));
+        maxSyllablesSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                maxSyllablesSpinnerStateChanged(evt);
+            }
+        });
 
         declensionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -188,6 +200,21 @@ public class RulesPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void maxSyllablesSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_maxSyllablesSpinnerStateChanged
+        Integer i=(Integer)maxSyllablesSpinner.getValue();
+        lcsMain1.setMaximumSyllables(i.intValue());
+    }//GEN-LAST:event_maxSyllablesSpinnerStateChanged
+
+    private void syllablePatternFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_syllablePatternFieldActionPerformed
+        lcs.model.lcsSyllableStructure syl = new lcs.model.lcsSyllableStructure(
+                syllablePatternField.getText());
+        lcsMain1.setSyllable(syl);
+    }//GEN-LAST:event_syllablePatternFieldActionPerformed
+
+    public void setMain(lcs.lcsMain lcsm){
+        lcsMain1=lcsm;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel conjugationLabel;
@@ -197,10 +224,11 @@ public class RulesPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
+    private lcs.lcsMain lcsMain1;
     private javax.swing.JLabel maxSyllablesLabel;
     private javax.swing.JSpinner maxSyllablesSpinner;
     private javax.swing.JLabel partOfSpeechLabel;
+    private javax.swing.JTable posRulesTable;
     private javax.swing.JTextField syllablePatternField;
     private javax.swing.JLabel syllablePatternLabel;
     // End of variables declaration//GEN-END:variables

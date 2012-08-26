@@ -147,7 +147,7 @@ public class lcsDictionaryEntry {
         if(((Boolean)rule.elementAt(0)).booleanValue()){
             int exception = (int)(Math.random()*100);
             if (exception > ((Integer)rule.elementAt(2)).intValue()){
-                System.out.println(syllableBreaks.size());
+                //System.out.println(syllableBreaks.size());
                 if(((Boolean)rule.elementAt(3)).booleanValue()){
                     if(((Boolean)rule.elementAt(4)).booleanValue()){
                         insertSyllableBreak(rule.elementAt(1).toString().length());

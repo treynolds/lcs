@@ -34,7 +34,6 @@ public class lcsMain {
     }
 
     public void setSyllable(lcsSyllableStructure syllable){
-        System.out.println(syllable);
         this.syllable = syllable;
     }
 

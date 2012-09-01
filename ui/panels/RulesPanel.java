@@ -11,6 +11,8 @@
 
 package lcs.ui.panels;
 
+import java.util.Vector;
+
 /**
  *
  * @author Timothy
@@ -32,6 +34,7 @@ public class RulesPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         lcsMain1 = new lcs.lcsMain();
+        lcsPosRules1 = new lcs.model.lcsPosRules();
         jScrollPane1 = new javax.swing.JScrollPane();
         posRulesTable = new javax.swing.JTable();
         syllablePatternLabel = new javax.swing.JLabel();
@@ -42,7 +45,7 @@ public class RulesPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         declensionTable = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        conugationTable = new javax.swing.JTable();
+        conjugationTable = new javax.swing.JTable();
         declensionLabel = new javax.swing.JLabel();
         conjugationLabel = new javax.swing.JLabel();
 
@@ -67,9 +70,26 @@ public class RulesPanel extends javax.swing.JPanel {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.Boolean.class, java.lang.String.class, java.lang.Integer.class, java.lang.Boolean.class, java.lang.Boolean.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true, true
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        posRulesTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                posRulesTableMouseClicked(evt);
+            }
+        });
+        posRulesTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                posRulesTableKeyTyped(evt);
             }
         });
         jScrollPane1.setViewportView(posRulesTable);
@@ -116,7 +136,7 @@ public class RulesPanel extends javax.swing.JPanel {
         declensionTable.setEnabled(false);
         jScrollPane2.setViewportView(declensionTable);
 
-        conugationTable.setModel(new javax.swing.table.DefaultTableModel(
+        conjugationTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -135,8 +155,8 @@ public class RulesPanel extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        conugationTable.setEnabled(false);
-        jScrollPane3.setViewportView(conugationTable);
+        conjugationTable.setEnabled(false);
+        jScrollPane3.setViewportView(conjugationTable);
 
         declensionLabel.setText("Noun Declension");
         declensionLabel.setEnabled(false);
@@ -151,7 +171,6 @@ public class RulesPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
                     .addComponent(partOfSpeechLabel)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,7 +189,8 @@ public class RulesPanel extends javax.swing.JPanel {
                         .addGap(28, 28, 28)
                         .addComponent(maxSyllablesLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(maxSyllablesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(maxSyllablesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -211,6 +231,60 @@ public class RulesPanel extends javax.swing.JPanel {
         lcsMain1.setSyllable(syl);
     }//GEN-LAST:event_syllablePatternFieldActionPerformed
 
+    private void posRulesTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_posRulesTableMouseClicked
+        int row = posRulesTable.getSelectedRow();
+        int col = posRulesTable.getSelectedColumn();
+        if(col == 2){
+            try{
+                String rule = (String)posRulesTable.getValueAt(row, col);
+                int a = -1;
+                while((a = rule.indexOf("\\u",a+1))>=0){
+                    String unicodeString = rule.substring(a + 2,a + 6);
+                    char uniChar = (char)Integer.parseInt(unicodeString, 16);
+                    rule = rule.substring(0, a) +
+                        uniChar + rule.substring(a+6);
+                    posRulesTable.setValueAt(rule, row, col);
+                }
+            }
+            catch(NullPointerException ex){
+
+            }
+        }
+        Vector values = new Vector();
+        values.add(posRulesTable.getValueAt(row, 1));
+        values.add(posRulesTable.getValueAt(row, 2));
+        values.add(posRulesTable.getValueAt(row, 3));
+        values.add(posRulesTable.getValueAt(row, 4));
+        values.add(posRulesTable.getValueAt(row, 5));
+        lcsPosRules1.put((String)posRulesTable.getValueAt(row, 0), values);
+    }//GEN-LAST:event_posRulesTableMouseClicked
+
+    private void posRulesTableKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_posRulesTableKeyTyped
+        int row = posRulesTable.getSelectedRow();
+        int col = posRulesTable.getSelectedColumn();
+        if(evt.getKeyChar() == '\n'){
+            if(col == 2){
+                try{
+                    String rule = (String)posRulesTable.getValueAt(oldrow, oldcol);
+                    int a = -1;
+                    while((a = rule.indexOf("\\u", a + 1)) >= 0){
+                        String unicodeString = rule.substring(a + 2,a + 6);
+                        char uniChar = (char)Integer.parseInt(unicodeString, 16);
+                        rule = rule.substring(0, a) +
+                            uniChar + rule.substring(a+6);
+                        posRulesTable.setValueAt(rule, oldrow, oldcol);
+                    }
+                }
+                catch(NullPointerException ex){
+
+                }
+            }
+        } else {
+            oldcol = col;
+            oldrow = row;
+        }
+    }//GEN-LAST:event_posRulesTableKeyTyped
+
     public void setMain(lcs.lcsMain lcsm){
         lcsMain1=lcsm;
     }
@@ -218,13 +292,14 @@ public class RulesPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel conjugationLabel;
-    private javax.swing.JTable conugationTable;
+    private javax.swing.JTable conjugationTable;
     private javax.swing.JLabel declensionLabel;
     private javax.swing.JTable declensionTable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private lcs.lcsMain lcsMain1;
+    private lcs.model.lcsPosRules lcsPosRules1;
     private javax.swing.JLabel maxSyllablesLabel;
     private javax.swing.JSpinner maxSyllablesSpinner;
     private javax.swing.JLabel partOfSpeechLabel;
@@ -232,5 +307,6 @@ public class RulesPanel extends javax.swing.JPanel {
     private javax.swing.JTextField syllablePatternField;
     private javax.swing.JLabel syllablePatternLabel;
     // End of variables declaration//GEN-END:variables
-
+    private int oldrow;
+    private int oldcol;
 }

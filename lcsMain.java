@@ -81,16 +81,15 @@ public class lcsMain {
             try{
                 BufferedReader in = new BufferedReader(new FileReader(definitions));
                 String defLine = " ";
-                while(!defLine.equals("")){
+                while((defLine = in.readLine()) != null){
                     System.out.println(">"+defLine+"<");
                     String splitter = ",";
-                    defLine = in.readLine();
+                    //defLine = in.readLine();
                     defLine = defLine.replace("\"","");
                     String[] stuff = {"","","",""};
                     String[] stff = defLine.split(splitter);
                     stuff[0] = strip(stff[0]).trim();
                     stuff[1] = strip(stff[1]).trim();
-                    //System.out.println(stuff[1]);
                     if(stff.length<3){
                         stuff[2]=" ";
                         stuff[3]="0";
@@ -116,7 +115,7 @@ public class lcsMain {
                     words.addElement(rde.getMeaning());
                     wordCount++;
                     //updateTable();
-                }//while(!defLine.equals("***"));
+                }
                 in.close();
             }
             catch (IOException ex){

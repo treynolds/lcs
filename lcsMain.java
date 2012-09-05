@@ -35,6 +35,7 @@ public class lcsMain {
 
     public void setSyllable(lcsSyllableStructure syllable){
         this.syllable = syllable;
+        System.out.println(this.getSyllableStructure());
     }
 
     public void setWritingSystem(lcsWritingSystem system){
@@ -82,9 +83,7 @@ public class lcsMain {
                 BufferedReader in = new BufferedReader(new FileReader(definitions));
                 String defLine = " ";
                 while((defLine = in.readLine()) != null){
-                    System.out.println(">"+defLine+"<");
                     String splitter = ",";
-                    //defLine = in.readLine();
                     defLine = defLine.replace("\"","");
                     String[] stuff = {"","","",""};
                     String[] stff = defLine.split(splitter);
@@ -104,7 +103,7 @@ public class lcsMain {
                     lcsDictionaryEntry rde = new lcsDictionaryEntry(stuff);
                     if(sounds.getVowels().size()>0 && sounds.getConsonants().size()>0){
                         do{
-                            rde.setMeaning(rde.generateMeaning(syllable, 
+                            rde.setMeaning(rde.generateMeaning(this.getSyllableStructure(),
                                     sounds.getVowels(), sounds.getConsonants(),
                                     rde.getPos(), posRules,
                                     rde.getDefinition(),maximumSyllables));
@@ -267,6 +266,7 @@ public class lcsMain {
         lcsMain lm = new lcsMain();
         lm.mainFrame = mf;
         mf.getMainPanel().setMain(lm);
+        mf.getRulesPanel().setMain(lm);
     }
 
     public static String strip(String raw){

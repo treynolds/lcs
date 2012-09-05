@@ -12,11 +12,11 @@ package lcs.model;
 public class lcsSyllableStructure {
     
     public lcsSyllableStructure(){
-        structure = "CV";
+        structure = new StringBuffer("CV");
     }
 
     public lcsSyllableStructure(String s){
-        structure = s;
+        structure = new StringBuffer(s);
     }
     
     public char charAt(int a){
@@ -24,7 +24,7 @@ public class lcsSyllableStructure {
     }
     
     public int indexOf(char c){
-        return structure.indexOf(c);
+        return structure.toString().indexOf(c);
     }
 
     public int indexOf(String c){
@@ -32,7 +32,7 @@ public class lcsSyllableStructure {
     }
 
     public int indexOf(char c, int start){
-        return structure.indexOf(c, start);
+        return structure.toString().indexOf(c, start);
     }
 
     public int indexOf(String c, int start){
@@ -48,8 +48,8 @@ public class lcsSyllableStructure {
     }
 
     public String toString(){
-        return structure;
+        return structure.toString();
     }
 
-    private String structure;
+    private StringBuffer structure;
 }

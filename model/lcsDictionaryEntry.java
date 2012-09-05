@@ -139,6 +139,34 @@ public class lcsDictionaryEntry {
                     }
                     a= syllable.indexOf('}',a);
                 }
+                if(syllable.charAt(a) == '('){
+                    int percent = 50;
+                    String g=syllable.substring(a,syllable.indexOf(')'));
+                    if(g.indexOf('.')>0){
+                        percent=(int)(Float.parseFloat(g.substring(g.indexOf('.')))*100);
+                        System.out.println(percent);
+                    }
+                    if(syllable.indexOf(')',a) > 0){
+                        if(syllable.charAt(a+1) == 'C'){
+                            int pct = (int)(Math.random()*100);
+                            int letter = (int)(Math.random()*consonants.size());
+                            if(pct < percent){
+                                word += consonants.get(letter);
+                            }
+                        }
+                        if(syllable.charAt(a+1) == 'V'){
+                            int x = (int)(Math.random()*100);
+                            int y = (int)(Math.random()*vowels.size());
+                            if(x < percent){
+                               word += vowels.get(y);
+                            }
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Illegal Syllable Structure\n expected }", "Oops!",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+                    a= syllable.indexOf(')',a+1);
+                }
                 char z =syllable.charAt(a);
                 if(Character.isLowerCase(z) || isPunct(z))
                     word += syllable.charAt(a);
@@ -147,7 +175,6 @@ public class lcsDictionaryEntry {
         if(((Boolean)rule.elementAt(0)).booleanValue()){
             int exception = (int)(Math.random()*100);
             if (exception > ((Integer)rule.elementAt(2)).intValue()){
-                //System.out.println(syllableBreaks.size());
                 if(((Boolean)rule.elementAt(3)).booleanValue()){
                     if(((Boolean)rule.elementAt(4)).booleanValue()){
                         insertSyllableBreak(rule.elementAt(1).toString().length());
@@ -181,7 +208,9 @@ public class lcsDictionaryEntry {
     }
 
     public boolean isPunct(char z){
-        return ((z >= '!') && (z <= '/')) || ((z >= ':') && (z <= '?'));
+        String punct="!\"#$%&\'*+,-./:;<=>?`abcdefghijklmnopqrstuvwxyz";
+        int a = punct.indexOf(z);
+        return (a >= 0);
     }
 
     public String toString(){

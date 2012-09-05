@@ -12,6 +12,7 @@
 package lcs.ui.panels;
 
 import java.util.Vector;
+import lcs.model.*;
 
 /**
  *
@@ -48,6 +49,13 @@ public class RulesPanel extends javax.swing.JPanel {
         conjugationTable = new javax.swing.JTable();
         declensionLabel = new javax.swing.JLabel();
         conjugationLabel = new javax.swing.JLabel();
+        updatePosRulesTableButton = new javax.swing.JButton();
+
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -94,6 +102,12 @@ public class RulesPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(posRulesTable);
         posRulesTable.getColumnModel().getColumn(0).setResizable(false);
+        posRulesTable.getColumnModel().getColumn(0).setHeaderValue("PoS");
+        posRulesTable.getColumnModel().getColumn(1).setHeaderValue("Enabled");
+        posRulesTable.getColumnModel().getColumn(2).setHeaderValue("Rule");
+        posRulesTable.getColumnModel().getColumn(3).setHeaderValue("Excep %");
+        posRulesTable.getColumnModel().getColumn(4).setHeaderValue("Prefix/Suffix");
+        posRulesTable.getColumnModel().getColumn(5).setHeaderValue("Add/Replace");
 
         syllablePatternLabel.setText("Syllable Pattern");
 
@@ -164,6 +178,13 @@ public class RulesPanel extends javax.swing.JPanel {
         conjugationLabel.setText("Verb Conjugation");
         conjugationLabel.setEnabled(false);
 
+        updatePosRulesTableButton.setText("Update");
+        updatePosRulesTableButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatePosRulesTableButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -189,7 +210,9 @@ public class RulesPanel extends javax.swing.JPanel {
                         .addGap(28, 28, 28)
                         .addComponent(maxSyllablesLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(maxSyllablesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(maxSyllablesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
+                        .addComponent(updatePosRulesTableButton))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -200,12 +223,17 @@ public class RulesPanel extends javax.swing.JPanel {
                 .addComponent(partOfSpeechLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(syllablePatternLabel)
-                    .addComponent(syllablePatternField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(maxSyllablesLabel)
-                    .addComponent(maxSyllablesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(syllablePatternLabel)
+                            .addComponent(syllablePatternField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(maxSyllablesLabel)
+                            .addComponent(maxSyllablesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(updatePosRulesTableButton)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -285,6 +313,38 @@ public class RulesPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_posRulesTableKeyTyped
 
+    private void updatePosRulesTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePosRulesTableButtonActionPerformed
+        Vector values = new Vector();
+        for(int row =0; row < 8;row ++){
+            values.clear();
+            values.add(posRulesTable.getValueAt(row, 1));
+            values.add(posRulesTable.getValueAt(row, 2));
+            values.add(posRulesTable.getValueAt(row, 3));
+            values.add(posRulesTable.getValueAt(row, 4));
+            values.add(posRulesTable.getValueAt(row, 5));
+            lcsPosRules1.put((String)posRulesTable.getValueAt(row, 0), values);
+            System.out.println(values);
+        }
+    }//GEN-LAST:event_updatePosRulesTableButtonActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        Vector posValues = new Vector();
+        String[] rows = {"Adjective","Adverb","Article","Conjunction",
+                         "Interjection","Noun","Preposition","Pronoun","Verb"};
+        lcsPosRules lcpr = lcsMain1.getPosRules();
+        for(int row = 0; row < 8; row ++){
+            posValues = (Vector)lcpr.get(rows[row]);
+            System.out.println(rows[row]+", "+posValues.get(0));
+            posRulesTable.setValueAt(((Boolean)posValues.get(4)).booleanValue(), row, 1);
+            /*posRulesTable.setValueAt(posValues.get(2),row,2);
+            posRulesTable.setValueAt(((Integer)posValues.get(3)).intValue(), row, 3);
+            posRulesTable.setValueAt(Boolean.parseBoolean((String)posValues.get(4)), row, 4);
+            posRulesTable.setValueAt(Boolean.parseBoolean((String)posValues.get(5)), row, 5);*/
+            //posValues.clear();
+        }
+        syllablePatternField.setText(lcsMain1.getSyllableStructure().toString());
+    }//GEN-LAST:event_formComponentShown
+
     public void setMain(lcs.lcsMain lcsm){
         lcsMain1=lcsm;
     }
@@ -306,6 +366,7 @@ public class RulesPanel extends javax.swing.JPanel {
     private javax.swing.JTable posRulesTable;
     private javax.swing.JTextField syllablePatternField;
     private javax.swing.JLabel syllablePatternLabel;
+    private javax.swing.JButton updatePosRulesTableButton;
     // End of variables declaration//GEN-END:variables
     private int oldrow;
     private int oldcol;

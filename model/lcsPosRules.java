@@ -15,7 +15,7 @@ public class lcsPosRules extends HashMap {
     public lcsPosRules(){
         Vector rule = new Vector();
         rule.add(new Boolean(true));
-        rule.add("");
+        rule.add("a");
         rule.add(-1);
         rule.add(new Boolean(false));
         rule.add(new Boolean(true));
@@ -28,5 +28,6 @@ public class lcsPosRules extends HashMap {
         put("Preposition",rule);
         put("Pronoun",rule);
         put("Verb",rule);
+        System.out.println("Creating Pos Rules");
     }
 }

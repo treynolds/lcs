@@ -23,6 +23,8 @@ public class RulesPanel extends javax.swing.JPanel {
     /** Creates new form RulesPanel */
     public RulesPanel() {
         initComponents();
+        System.out.println("getting Pos rules");
+        lcsPosRules1 = lcsMain1.getPosRules();
     }
 
     /** This method is called from within the constructor to
@@ -33,6 +35,7 @@ public class RulesPanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         lcsMain1 = new lcs.lcsMain();
         lcsPosRules1 = new lcs.model.lcsPosRules();
@@ -43,19 +46,22 @@ public class RulesPanel extends javax.swing.JPanel {
         syllablePatternField = new javax.swing.JTextField();
         maxSyllablesLabel = new javax.swing.JLabel();
         maxSyllablesSpinner = new javax.swing.JSpinner();
+        updatePosRulesTableButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         declensionTable = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         conjugationTable = new javax.swing.JTable();
         declensionLabel = new javax.swing.JLabel();
         conjugationLabel = new javax.swing.JLabel();
-        updatePosRulesTableButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
             }
         });
+        setLayout(new java.awt.GridBagLayout());
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -69,6 +75,7 @@ public class RulesPanel extends javax.swing.JPanel {
                 {"Interjection", null, null, new Integer(-1), null, null},
                 {"Noun", null, null, new Integer(-1), null, null},
                 {"Preposition", null, null, new Integer(-1), null, null},
+                {"Pronoun", null, null, null, null, null},
                 {"Verb", null, null, new Integer(-1), null, null}
             },
             new String [] {
@@ -90,6 +97,7 @@ public class RulesPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        posRulesTable.setPreferredSize(new java.awt.Dimension(450, 148));
         posRulesTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 posRulesTableMouseClicked(evt);
@@ -102,24 +110,70 @@ public class RulesPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(posRulesTable);
         posRulesTable.getColumnModel().getColumn(0).setResizable(false);
-        posRulesTable.getColumnModel().getColumn(0).setHeaderValue("PoS");
-        posRulesTable.getColumnModel().getColumn(1).setHeaderValue("Enabled");
-        posRulesTable.getColumnModel().getColumn(2).setHeaderValue("Rule");
-        posRulesTable.getColumnModel().getColumn(3).setHeaderValue("Excep %");
-        posRulesTable.getColumnModel().getColumn(4).setHeaderValue("Prefix/Suffix");
-        posRulesTable.getColumnModel().getColumn(5).setHeaderValue("Add/Replace");
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridheight = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 0.51;
+        gridBagConstraints.insets = new java.awt.Insets(6, 10, 0, 10);
+        add(jScrollPane1, gridBagConstraints);
 
         syllablePatternLabel.setText("Syllable Pattern");
+        syllablePatternLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.01;
+        gridBagConstraints.weighty = 0.05;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+        add(syllablePatternLabel, gridBagConstraints);
 
         partOfSpeechLabel.setText("Part of Speech Rules");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 0.05;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+        add(partOfSpeechLabel, gridBagConstraints);
 
         syllablePatternField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 syllablePatternFieldActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.weighty = 0.05;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 0);
+        add(syllablePatternField, gridBagConstraints);
 
         maxSyllablesLabel.setText("Maximum # Syllables");
+        maxSyllablesLabel.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.weighty = 0.05;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 10);
+        add(maxSyllablesLabel, gridBagConstraints);
 
         maxSyllablesSpinner.setModel(new javax.swing.SpinnerNumberModel(3, 2, 5, 1));
         maxSyllablesSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -127,6 +181,33 @@ public class RulesPanel extends javax.swing.JPanel {
                 maxSyllablesSpinnerStateChanged(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.59;
+        gridBagConstraints.weighty = 0.05;
+        gridBagConstraints.insets = new java.awt.Insets(7, 0, 0, 0);
+        add(maxSyllablesSpinner, gridBagConstraints);
+
+        updatePosRulesTableButton.setText("Update");
+        updatePosRulesTableButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatePosRulesTableButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 0.05;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 10);
+        add(updatePosRulesTableButton, gridBagConstraints);
+
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         declensionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -150,6 +231,18 @@ public class RulesPanel extends javax.swing.JPanel {
         declensionTable.setEnabled(false);
         jScrollPane2.setViewportView(declensionTable);
 
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridheight = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.4;
+        gridBagConstraints.weighty = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 0);
+        jPanel1.add(jScrollPane2, gridBagConstraints);
+
         conjugationTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -172,80 +265,55 @@ public class RulesPanel extends javax.swing.JPanel {
         conjugationTable.setEnabled(false);
         jScrollPane3.setViewportView(conjugationTable);
 
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridheight = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.4;
+        gridBagConstraints.weighty = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
+        jPanel1.add(jScrollPane3, gridBagConstraints);
+
         declensionLabel.setText("Noun Declension");
         declensionLabel.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.weighty = 0.05;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        jPanel1.add(declensionLabel, gridBagConstraints);
 
         conjugationLabel.setText("Verb Conjugation");
         conjugationLabel.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanel1.add(conjugationLabel, gridBagConstraints);
 
-        updatePosRulesTableButton.setText("Update");
-        updatePosRulesTableButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updatePosRulesTableButtonActionPerformed(evt);
-            }
-        });
+        jLabel1.setText(" ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.weighty = 0.1;
+        jPanel1.add(jLabel1, gridBagConstraints);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(partOfSpeechLabel)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(declensionLabel)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(conjugationLabel)
-                                .addGap(177, 177, 177))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(syllablePatternLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(syllablePatternField, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(maxSyllablesLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(maxSyllablesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
-                        .addComponent(updatePosRulesTableButton))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(partOfSpeechLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(syllablePatternLabel)
-                            .addComponent(syllablePatternField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(maxSyllablesLabel)
-                            .addComponent(maxSyllablesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(updatePosRulesTableButton)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(declensionLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(conjugationLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridheight = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 0.34;
+        add(jPanel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void maxSyllablesSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_maxSyllablesSpinnerStateChanged
@@ -315,7 +383,9 @@ public class RulesPanel extends javax.swing.JPanel {
 
     private void updatePosRulesTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePosRulesTableButtonActionPerformed
         Vector values = new Vector();
-        for(int row =0; row < 8;row ++){
+        //lcsPosRules1 = lcsMain1.getPosRules();
+        System.out.println();
+        for(int row =0; row < 9;row ++){
             values.clear();
             values.add(posRulesTable.getValueAt(row, 1));
             values.add(posRulesTable.getValueAt(row, 2));
@@ -323,7 +393,7 @@ public class RulesPanel extends javax.swing.JPanel {
             values.add(posRulesTable.getValueAt(row, 4));
             values.add(posRulesTable.getValueAt(row, 5));
             lcsPosRules1.put((String)posRulesTable.getValueAt(row, 0), values);
-            System.out.println(values);
+            System.out.println(lcsPosRules1.get((String)posRulesTable.getValueAt(row, 0)));
         }
     }//GEN-LAST:event_updatePosRulesTableButtonActionPerformed
 
@@ -331,15 +401,15 @@ public class RulesPanel extends javax.swing.JPanel {
         Vector posValues = new Vector();
         String[] rows = {"Adjective","Adverb","Article","Conjunction",
                          "Interjection","Noun","Preposition","Pronoun","Verb"};
-        lcsPosRules lcpr = lcsMain1.getPosRules();
-        for(int row = 0; row < 8; row ++){
-            posValues = (Vector)lcpr.get(rows[row]);
-            System.out.println(rows[row]+", "+posValues.get(0));
-            posRulesTable.setValueAt(((Boolean)posValues.get(4)).booleanValue(), row, 1);
-            /*posRulesTable.setValueAt(posValues.get(2),row,2);
-            posRulesTable.setValueAt(((Integer)posValues.get(3)).intValue(), row, 3);
-            posRulesTable.setValueAt(Boolean.parseBoolean((String)posValues.get(4)), row, 4);
-            posRulesTable.setValueAt(Boolean.parseBoolean((String)posValues.get(5)), row, 5);*/
+        //lcsPosRules lcpr = lcsMain1.getPosRules();
+        for(int row = 0; row < 9; row ++){
+            posValues = (Vector)lcsPosRules1.get(rows[row]);
+            System.out.println(posValues);
+            posRulesTable.setValueAt(((Boolean)posValues.get(0)).booleanValue(), row, 1);
+            posRulesTable.setValueAt(posValues.get(1),row,2);
+            posRulesTable.setValueAt(((Integer)posValues.get(2)).intValue(), row, 3);
+            posRulesTable.setValueAt(((Boolean)posValues.get(3)).booleanValue(), row, 4);
+            posRulesTable.setValueAt(((Boolean)posValues.get(4)).booleanValue(), row, 5);
             //posValues.clear();
         }
         syllablePatternField.setText(lcsMain1.getSyllableStructure().toString());
@@ -355,6 +425,8 @@ public class RulesPanel extends javax.swing.JPanel {
     private javax.swing.JTable conjugationTable;
     private javax.swing.JLabel declensionLabel;
     private javax.swing.JTable declensionTable;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

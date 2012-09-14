@@ -63,6 +63,7 @@ public class lcsMain {
     }
 
     public lcsPosRules getPosRules(){
+        System.out.println("got POS Rules!");
         return posRules;
     }
 

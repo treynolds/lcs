@@ -11,7 +11,9 @@
 
 package lcs.ui.main;
 
+import java.awt.Toolkit;
 import javax.swing.*;
+import lcs.ui.dialogs.WizardDialog;
 
 /**
  *
@@ -48,6 +50,7 @@ public class MainFrame extends javax.swing.JFrame {
         mainMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         newMenuItem = new javax.swing.JMenuItem();
+        newWizardMenuItem = new javax.swing.JMenuItem();
         openMenuItem = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
@@ -73,6 +76,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Language Constructions Set");
+        setIconImage(Toolkit.getDefaultToolkit().getImage("icon.png"));
 
         mainContainerPanel.setMinimumSize(new java.awt.Dimension(709, 45));
         mainContainerPanel.setLayout(new java.awt.GridBagLayout());
@@ -107,6 +111,14 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         fileMenu.add(newMenuItem);
+
+        newWizardMenuItem.setText("New from Wizard ...");
+        newWizardMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newWizardMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(newWizardMenuItem);
 
         openMenuItem.setText("Open ...");
         openMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -339,6 +351,11 @@ public class MainFrame extends javax.swing.JFrame {
         ad.setVisible(true);
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
+    private void newWizardMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newWizardMenuItemActionPerformed
+        WizardDialog wd= new WizardDialog(this, true);
+        wd.setVisible(true);
+    }//GEN-LAST:event_newWizardMenuItemActionPerformed
+
     public lcs.ui.panels.MainPanel getMainPanel(){
         return mainPanel;
     }
@@ -384,6 +401,7 @@ public class MainFrame extends javax.swing.JFrame {
     private lcs.ui.panels.MainPanel mainPanel;
     private javax.swing.JTabbedPane mainTabbedPane;
     private javax.swing.JMenuItem newMenuItem;
+    private javax.swing.JMenuItem newWizardMenuItem;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JPopupMenu.Separator projectDefinitionsSeparator;

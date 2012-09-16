@@ -64,7 +64,6 @@ public class RulesPanel extends javax.swing.JPanel {
         setLayout(new java.awt.GridBagLayout());
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         posRulesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -75,7 +74,7 @@ public class RulesPanel extends javax.swing.JPanel {
                 {"Interjection", null, null, new Integer(-1), null, null},
                 {"Noun", null, null, new Integer(-1), null, null},
                 {"Preposition", null, null, new Integer(-1), null, null},
-                {"Pronoun", null, null, null, null, null},
+                {"Pronoun", null, null, new Integer(-1), null, null},
                 {"Verb", null, null, new Integer(-1), null, null}
             },
             new String [] {
